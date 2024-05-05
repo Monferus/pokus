@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="script" href="script.js">
+        <link rel="icon" href="logo.png">
+        <title>Monferus</title>
+        <meta charset="utf-8" >
+    </head>
+    <body>
+        <h1><a href="index.html">Zpět</a> na domovskou stránku</h1>
+    <video autoplay muted loop id="myVideo">
+            <source src="pozadi.mp4" type="video/mp4">
+        </video>
+    <!-- Add a placeholder for the Twitch embed -->
+    <div id="twitch-embed"></div>
+
+    <!-- Load the Twitch embed script -->
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+    <!-- Create a Twitch.Embed object that will render within the "twitch-embed" element. -->
+    <script type="text/javascript">
+      var embed = new Twitch.Embed("twitch-embed", {
+        width: 1200,
+        height: 720,
+        channel: "monferus",
+        layout: "video",
+        autoplay: false,
+        // Only needed if this page is going to be embedded on other websites
+        parent: ["cojavim.4fan.cz"]
+      });
+
+      embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+        var player = embed.getPlayer();
+        player.play();
+      });
+    </script>
+    <iframe id="twitch-chat-embed"
+        src="https://www.twitch.tv/embed/monferus/chat?parent=cojavim.4fan.cz"
+        height="715"
+        width="350">
+</iframe>
+  </body>
+</html>
