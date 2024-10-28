@@ -7,18 +7,6 @@
         <title>Dark Templars</title>
         <meta charset="utf-8">
         <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
-<script>
-    $.ajax({
-        url: 'https://panel.omgserv.com/json/438743/status',
-        dataType: 'jsonp',
-        success: function(data) {
-            console.log(data);
-        },
-        error: function(error) {
-            console.error('Error:', error);
-        }
-    });
-</script>
     </head>
     <body>
         <h1><a href="index.html">Zpět(Back)</a></h1>
@@ -35,6 +23,18 @@
             <li>RAM : Loading...</li>
             <li>Online : Loading...</li>
         </ul>
+        <script>
+    $.ajax({
+        url: 'https://panel.omgserv.com/json/438743/status',
+        dataType: 'jsonp',
+        success: function(data) {
+            console.log(data);
+        },
+        error: function(error) {
+            console.error('Error:', error);
+        }
+    });
+</script>
         <script>
             fetch('https://panel.omgserv.com/json/438743/status')
                 .then(response => response.json())
