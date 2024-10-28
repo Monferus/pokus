@@ -2,10 +2,10 @@
 <html lang="cs">
     <head>
         <link rel="stylesheet" href="style.css">
-        <link rel="script" href="script.js">
+        <script src="script.js"></script>
         <link rel="icon" href="logo.png">
         <title>Dark Templars</title>
-        <meta charset="utf-8" >
+        <meta charset="utf-8">
     </head>
     <body>
         <h1><a href="index.html">Zpět(Back)</a></h1>
@@ -16,18 +16,19 @@
         </video>
         <h1><a href="https://discord.gg/jPx5jzn" target="_blank">Discord</a></h1>
         <h2>Server status</h2>
-<?php
-$data = json_decode(file_get_contents("https://panel.omgserv.com/json/438743/status"));
-$status = $data->status->online ? "Online" : "Offline";
-$cpu = $data->status->online ? $data->status->cpu : "N/C";
-$ram = $data->status->online ? round($data->status->ram / 1024) : "N/C";
-$players = $data->status->online ? $data->status->players->online." / ".$data->status->players->max : "N/C";
-?>
-<ul>
-	<li>Status : <?= $status ?></li>
-	<li>CPU : <?= $cpu ?>%</li>
-	<li>RAM : <?= $ram ?>Mo</li>
-	<li>Online : <?= $players ?></li>
-</ul>
+        <?php
+        $data = json_decode(file_get_contents("https://panel.omgserv.com/json/438743/status"));
+        $status = $data->status->online ? "Online" : "Offline";
+        $cpu = $data->status->online ? $data->status->cpu : "N/C";
+        $ram = $data->status->online ? round($data->status->ram / 1024) : "N/C";
+        $players = $data->status->online ? $data->status->players->online." / ".$data->status->players->max : "N/C";
+        ?>
+        <ul>
+            <li>Status : <?= $status ?></li>
+            <li>CPU : <?= $cpu ?>%</li>
+            <li>RAM : <?= $ram ?>Mo</li>
+            <li>Online : <?= $players ?></li>
+        </ul>
     </body>
 </html>
+
