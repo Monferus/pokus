@@ -23,7 +23,7 @@
             <li>Online : Loading...</li>
         </ul>
         <script>
-            fetch('https://panel.omgserv.com/json/438743/status')
+            fetch('https://panel.omgserv.com/json/438743/status', {headers: {"Access-Control-Allow-Origin": "*"}})
                 .then(response => response.json())
                 .then(data => {
                     const status = data.status.online ? "Online" : "Offline";
