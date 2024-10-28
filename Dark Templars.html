@@ -16,19 +16,30 @@
         </video>
         <h1><a href="https://discord.gg/jPx5jzn" target="_blank">Discord</a></h1>
         <h2>Server status</h2>
-        <?php
-        $data = json_decode(file_get_contents("https://panel.omgserv.com/json/438743/status"));
-        $status = $data->status->online ? "Online" : "Offline";
-        $cpu = $data->status->online ? $data->status->cpu : "N/C";
-        $ram = $data->status->online ? round($data->status->ram / 1024) : "N/C";
-        $players = $data->status->online ? $data->status->players->online." / ".$data->status->players->max : "N/C";
-        ?>
-        <ul>
-            <li>Status : <?= $status ?></li>
-            <li>CPU : <?= $cpu ?>%</li>
-            <li>RAM : <?= $ram ?>Mo</li>
-            <li>Online : <?= $players ?></li>
+        <ul id="server-status">
+            <li>Status : Loading...</li>
+            <li>CPU : Loading...</li>
+            <li>RAM : Loading...</li>
+            <li>Online : Loading...</li>
         </ul>
+        <script>
+            fetch('https://panel.omgserv.com/json/438743/status')
+                .then(response => response.json())
+                .then(data => {
+                    const status = data.status.online ? "Online" : "Offline";
+                    const cpu = data.status.online ? data.status.cpu : "N/C";
+                    const ram = data.status.online ? Math.round(data.status.ram / 1024) : "N/C";
+                    const players = data.status.online ? `${data.status.players.online} / ${data.status.players.max}` : "N/C";
+
+                    document.getElementById('server-status').innerHTML = `
+                        <li>Status : ${status}</li>
+                        <li>CPU : ${cpu}%</li>
+                        <li>RAM : ${ram}Mo</li>
+                        <li>Online : ${players}</li>
+                    `;
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        </script>
     </body>
 </html>
 
