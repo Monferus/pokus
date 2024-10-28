@@ -6,6 +6,19 @@
         <link rel="icon" href="logo.png">
         <title>Dark Templars</title>
         <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+<script>
+    $.ajax({
+        url: 'https://panel.omgserv.com/json/438743/status',
+        dataType: 'jsonp',
+        success: function(data) {
+            console.log(data);
+        },
+        error: function(error) {
+            console.error('Error:', error);
+        }
+    });
+</script>
     </head>
     <body>
         <h1><a href="index.html">Zpět(Back)</a></h1>
