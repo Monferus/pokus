@@ -1,0 +1,4 @@
+http_headers: 
+                Acces-Control-Allow-Origin: "*"
+                Acces-Control-Allow-Methods: "GET, POST, PUT, DELETE"
+                Acces-Control-Allow-Headers: "Content-Type"
