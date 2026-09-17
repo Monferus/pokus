@@ -25,7 +25,7 @@
         </ul>
         <script>
     $.ajax({
-        url: 'https://panel.omgserv.com/json/438743/status',
+        url: 'https://panel.omgserv.com/json/463763/status',
         dataType: 'json',
         success: function(data) {
             console.log(data);
@@ -36,7 +36,7 @@
     });
 </script>
         <script>
-            fetch('https://panel.omgserv.com/json/438743/status')
+            fetch('https://panel.omgserv.com/json/463763/status')
                 .then(response => response.json())
                 .then(data => {
                     const status = data.status.online ? "Online" : "Offline";
